@@ -1,0 +1,42 @@
+# ── Node / React ──────────────────────────────────────────────
+node_modules/
+dist/
+.vite/
+*.local
+
+# ── Python runtime / venv ─────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# ── AI Engine runtime data (auto-generated, user-specific) ────
+ai_engine/ai_tutor_data/
+ai_engine/ai_twin_data/
+
+# ── Environment / secrets ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── OS files ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── Temporary / report files ──────────────────────────────────
+*.patch
+*unimported_results*.txt
+*_log.txt
+*_err.txt
+
+

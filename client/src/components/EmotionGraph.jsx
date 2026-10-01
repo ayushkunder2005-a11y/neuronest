@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import io from "socket.io-client";
 
+
 const MAX_POINTS = 20;
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
 const socketUrl =

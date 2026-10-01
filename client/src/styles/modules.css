@@ -1,0 +1,94 @@
+﻿:root {
+  --shell-bg: radial-gradient(circle at top, #1d0b3a, #05030d 70%);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-muted: rgba(255, 255, 255, 0.75);
+}
+
+.module-shell {
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem);
+  background: var(--shell-bg);
+  color: #f8f4ff;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-card {
+  inline-size: min(900px, 100%);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 40px 80px rgba(4, 0, 16, 0.45);
+}
+
+.module-card h1 {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  margin-block-end: 1rem;
+}
+
+.module-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.mood-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-block-end: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  text-align: start;
+}
+
+.mood-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-block-end: 0.2rem;
+}
+
+.mood-banner-close {
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.module-actions {
+  margin-block-start: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.module-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.module-actions button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 122, 165, 0.8);
+}

@@ -3,8 +3,7 @@ import Webcam from "react-webcam";
 import EmotionGraph from "./EmotionGraph";
 
 const apiBaseUrl =
-  import.meta.env.VITE_AI_ENGINE_URL ||
-  (typeof window !== "undefined" ? "http://localhost:8000" : "http://localhost:8000");
+  import.meta.env.VITE_AI_ENGINE_URL || "http://localhost:8000";
 
 const HEALTH_ENDPOINT = `${apiBaseUrl.replace(/\/$/, "")}/health`;
 const EMOTION_ENDPOINT = `${apiBaseUrl.replace(/\/$/, "")}/emotion`;

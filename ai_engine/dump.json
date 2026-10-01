@@ -1,0 +1,233 @@
+{
+  "Programming": {
+    "mastery": 0.0,
+    "children": {
+      "Python": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "JavaScript": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Data Structures": {
+        "mastery": 0.0,
+        "lastStudied": null,
+        "reviewCount": 0,
+        "children": {
+          "Arrays": {
+            "mastery": 0,
+            "lastStudied": null,
+            "reviewCount": 0
+          },
+          "Trees": {
+            "mastery": 0,
+            "lastStudied": null,
+            "reviewCount": 0
+          },
+          "Graphs": {
+            "mastery": 0,
+            "lastStudied": null,
+            "reviewCount": 0
+          }
+        }
+      },
+      "Algorithms": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      }
+    }
+  },
+  "Mathematics": {
+    "mastery": 0.0,
+    "children": {
+      "Algebra": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Probability": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Calculus": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      }
+    }
+  },
+  "Communication": {
+    "mastery": 16.7,
+    "children": {
+      "English": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:08:00.654212",
+        "reviewCount": 1
+      },
+      "Presentation": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:08:04.439745",
+        "reviewCount": 1
+      },
+      "Writing": {
+        "mastery": 30,
+        "lastStudied": "2026-03-26T13:18:04.006176",
+        "reviewCount": 3
+      }
+    },
+    "lastStudied": "2026-03-26T00:07:57.396643",
+    "reviewCount": 3
+  },
+  "Custom": {
+    "mastery": 2.9,
+    "children": {
+      "Hello": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Next Based": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Next?": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:57:51.695938",
+        "reviewCount": 1
+      },
+      "Plan": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Add One More": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:08:10.513967",
+        "reviewCount": 1
+      },
+      "Planner": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "In Study Planner": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "One More": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Create": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:08:18.678023",
+        "reviewCount": 1
+      },
+      "In Timetable Study Schedule": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:57:48.927934",
+        "reviewCount": 1
+      },
+      "Schedule": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Based On My Knowledge Graph": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "What Should I Study Next?": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Example: Physics": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Commerce": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:08:14.590536",
+        "reviewCount": 1
+      },
+      "Engineering": {
+        "mastery": 10,
+        "lastStudied": "2026-03-26T00:08:21.220141",
+        "reviewCount": 1
+      },
+      "Drawing": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Mechanics": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Car": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "More": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Accounts": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      }
+    },
+    "lastStudied": "2026-03-26T00:08:09.005434",
+    "reviewCount": 1
+  },
+  "Science": {
+    "mastery": 0.0,
+    "children": {
+      "Physics": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Chemistry": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Biology": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      }
+    }
+  },
+  "Social Studies": {
+    "mastery": 0.0,
+    "children": {
+      "History": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      },
+      "Economics": {
+        "mastery": 0,
+        "lastStudied": null,
+        "reviewCount": 0
+      }
+    }
+  }
+}

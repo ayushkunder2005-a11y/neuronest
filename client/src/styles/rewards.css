@@ -1,0 +1,408 @@
+/* Rewards Page Styles */
+.rewards-page {
+  min-height: 100vh;
+  padding: 2rem;
+  background: radial-gradient(circle at top, #13052c, #05020f 65%);
+  color: #f8f4ff;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Header */
+.rewards-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.rewards-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #f6ad55, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rewards-header p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Tabs */
+.rewards-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+  padding-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.tab-btn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  color: #fff;
+}
+
+.tab-btn.active {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #a78bfa;
+  color: #fff;
+}
+
+/* Content */
+.rewards-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Avatar Section */
+.avatar-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.avatar-display {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(246, 173, 85, 0.1), rgba(167, 139, 250, 0.1));
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.avatar-emoji {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.avatar-stage-name {
+  font-size: 1.75rem;
+  color: #f6ad55;
+  margin: 0;
+}
+
+.avatar-xp {
+  color: #a78bfa;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+/* Progress Bar */
+.xp-progress {
+  margin-bottom: 2rem;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar.small {
+  height: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.6s ease;
+}
+
+.progress-fill.gold {
+  background: linear-gradient(90deg, #f6ad55, #fbbf24);
+}
+
+.progress-fill.purple {
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+/* Skills */
+.skills-section h3 {
+  color: #a78bfa;
+  margin-bottom: 1.5rem;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.skill-name {
+  flex: 0 0 150px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.skill-bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  transition: width 0.6s ease;
+}
+
+.skill-value {
+  flex: 0 0 40px;
+  text-align: right;
+  color: #a78bfa;
+  font-weight: bold;
+}
+
+/* Streak */
+.streak-banner {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(251, 113, 133, 0.15);
+  border: 1px solid rgba(251, 113, 133, 0.3);
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  color: #fb7185;
+}
+
+/* Badges Section */
+.badges-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.badges-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.badges-header h3 {
+  color: #a78bfa;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.badge-count {
+  color: #f6ad55;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.badge-card {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.badge-card.unlocked {
+  border-color: #f6ad55;
+  background: rgba(246, 173, 85, 0.05);
+}
+
+
+.badge-card:hover {
+  transform: translateY(-4px);
+}
+
+.badge-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.badge-name {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.badge-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+.badge-progress .progress-bar {
+  flex: 1;
+}
+
+.badge-earned {
+  color: #10b981;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.badge-rarity {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-rarity.common {
+  background: rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.badge-rarity.rare {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge-rarity.epic {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.badge-rarity.legendary {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Time Capsule Section */
+.capsule-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.capsule-section h3 {
+  color: #4299e1;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.capsule-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+}
+
+.capsule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.capsule-card {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(66, 153, 225, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.capsule-card:hover {
+  background: rgba(66, 153, 225, 0.1);
+  border-color: #4299e1;
+}
+
+.capsule-date {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.capsule-topic {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.capsule-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.capsule-score {
+  color: #10b981;
+}
+
+.capsule-replays {
+  color: #a78bfa;
+}
+
+.replay-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(66, 153, 225, 0.2);
+  border: 1px solid #4299e1;
+  border-radius: 8px;
+  color: #4299e1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.replay-btn:hover {
+  background: #4299e1;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .rewards-page {
+    padding: 1rem;
+  }
+
+  .rewards-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .rewards-tabs {
+    flex-wrap: wrap;
+  }
+
+  .skill-name {
+    flex: 0 0 100px;
+    font-size: 0.8rem;
+  }
+
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

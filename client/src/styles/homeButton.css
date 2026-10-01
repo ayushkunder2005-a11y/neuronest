@@ -1,0 +1,27 @@
+.home-floating-btn {
+  position: fixed;
+  inset-inline-start: 1.5rem;
+  inset-block-end: 1.5rem;
+  z-index: 1000;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: linear-gradient(120deg, #7c3aed, #38bdf8);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.home-floating-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+.home-floating-btn--disabled {
+  opacity: 0.7;
+  cursor: default;
+}

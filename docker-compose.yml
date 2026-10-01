@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:6.0
+    ports: [ "27017:27017" ]
+    volumes: [ mongo_data:/data/db ]
+
+  backend:
+    build: ./server
+    ports: [ "5000:5000" ]
+    env_file: ./server/.env
+    depends_on: [ mongo, ai ]
+    volumes: [ "./server:/usr/src/app" ]
+
+  ai:
+    build: ./ai_engine
+    ports: [ "8000:8000" ]
+    volumes: [ "./ai_engine:/app" ]
+
+  frontend:
+    build: ./client
+    ports: [ "3000:80" ]
+    depends_on: [ backend ]
+
+volumes:
+  mongo_data:

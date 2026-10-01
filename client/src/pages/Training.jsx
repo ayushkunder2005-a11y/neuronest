@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import FocusGames from "../components/training/FocusGames";
 import LogicGames from "../components/training/LogicGames";
 import MemoryGames from "../components/training/MemoryGames";
@@ -137,6 +137,15 @@ const TRAINING_MODULES = [
         xp: 100,
         type: "game"
       },
+      {
+        id: "focus-tracking",
+        name: "Object Tracking",
+        duration: 5,
+        difficulty: "Hard",
+        description: "Keep track of specific moving items among distractors",
+        xp: 120,
+        type: "game"
+      },
     ],
   },
   {
@@ -173,6 +182,15 @@ const TRAINING_MODULES = [
         xp: 100,
         type: "game"
       },
+      {
+        id: "memory-nback",
+        name: "Audio-Visual Matching",
+        duration: 6,
+        difficulty: "Hard",
+        description: "Match current items to previous ones (N-Back style)",
+        xp: 150,
+        type: "game"
+      },
     ],
   },
   {
@@ -207,6 +225,15 @@ const TRAINING_MODULES = [
         difficulty: "Hard",
         description: "Basic math and visual logic challenges",
         xp: 100,
+        type: "game"
+      },
+      {
+        id: "logic-spatial",
+        name: "Spatial Reasoning",
+        duration: 5,
+        difficulty: "Medium",
+        description: "Rotate and manipulate objects in your mind",
+        xp: 110,
         type: "game"
       },
     ],
@@ -350,6 +377,186 @@ export default function Training() {
     };
   };
 
+  // Advanced Neural Age & Mode Adaptation Engine
+  const dynamicModules = useMemo(() => {
+    return TRAINING_MODULES.map(module => {
+      let newTitle = module.title;
+      let newDescription = module.description;
+      let newBenefits = [...module.benefits];
+      
+      const isAdult = userProfile.ageGroup === 'adult';
+      const isTeen = userProfile.ageGroup === 'teen';
+      const isChild = userProfile.ageGroup === 'child' || userProfile.ageGroup === 'toddler';
+      
+      const isPerf = userProfile.trainingMode === 'performance';
+      const isFun = userProfile.trainingMode === 'fun';
+      
+      const goal = userProfile.cognitiveGoal; // 'study', 'productivity', 'emotional', 'general'
+
+      // 1. Module Level Theming
+      if (module.id === 'focus') {
+        if (isAdult) {
+          newTitle = isPerf ? "Deep Work Protocol" : "Executive Focus";
+          newDescription = "Hyper-optimize your attention span for deep professional focus blocks.";
+        } else if (isTeen) {
+          newTitle = "Academic Concentration";
+          newDescription = "Train your brain to study longer without getting distracted.";
+        } else if (isChild) {
+          newTitle = "Fun Finder";
+          newDescription = "Spot the hidden items and practice paying attention!";
+        }
+      } else if (module.id === 'memory') {
+        if (isAdult) {
+          newTitle = isPerf ? "Cognitive Data Retention" : "Professional Memory";
+          newDescription = "Advanced neuro-plasticity exercises for high-volume data retention.";
+        } else if (isTeen) {
+          newTitle = "Exam Prep Memory";
+          newDescription = "Boost your recall speed and sequence memorization for tests.";
+        } else if (isChild) {
+          newTitle = "Magic Memory Match";
+          newDescription = "Play fun games to remember shapes, colors, and sounds!";
+        }
+      } else if (module.id === 'logic') {
+        if (isAdult) {
+          newTitle = isPerf ? "Advanced Cognitive Strategy" : "Logical Reasoning";
+          newDescription = "Complex problem-solving designed to increase fluid intelligence.";
+        } else if (isTeen) {
+          newTitle = "Competitive Reasoning";
+          newDescription = "Sharpen your critical thinking for academic competitions and coding.";
+        } else if (isChild) {
+          newTitle = "Shapes & Patterns";
+          newDescription = "Learn how to solve fun visual puzzles step by step.";
+        }
+      } else if (module.id === 'relaxation') {
+        if (isAdult) {
+          newTitle = isPerf ? "Neuro-Restoration Protocol" : "Mental Recovery";
+          newDescription = "Rapid stress-inoculation and alpha-wave mediation techniques.";
+        } else if (isTeen) {
+          newTitle = "Study Break Reset";
+          newDescription = "Quick digital detox methods to refresh your brain.";
+        } else if (isChild) {
+          newTitle = "Calm Time";
+          newDescription = "Soothing sounds and breathing exercises to feel peaceful.";
+        }
+      }
+
+      // 2. Exercise Level Adaptation
+      const durationMultiplier = currentAgeGroup.durationMultiplier;
+      let xpMultiplier = 1;
+      if (isPerf) xpMultiplier = 1.5;
+      if (isFun) xpMultiplier = 0.8;
+
+      const adaptedExercises = module.exercises.map(ex => {
+        let diffLabel = ex.difficulty;
+        let exName = ex.name;
+        let exDesc = ex.description;
+
+        // Custom Exercise Overhauls based on Age and Goal
+        if (isAdult) {
+          if (ex.id === "focus-symbols") { exName = "Data Point Extraction"; exDesc = "Locate critical data points in high-noise environments."; }
+          if (ex.id === "focus-reaction") { exName = "Executive Decision"; exDesc = "Rapidly triage incoming tasks under time pressure."; }
+          if (ex.id === "focus-distraction") { exName = "Deep Block Immersion"; exDesc = "Maintain uninterrupted focus against simulated digital alerts."; }
+          if (ex.id === "focus-tracking") { exName = "Multiple Object Tracking"; exDesc = "Mentally track critical data packets shifting in complex arrays."; }
+          
+          if (ex.id === "memory-cards") { exName = "Workspace Spatial Matrix"; exDesc = "Retain multi-variable locations for complex project mapping."; }
+          if (ex.id === "memory-sequence") { exName = "Sequential Workflow Recall"; exDesc = "Memorize and execute multi-step operational flows."; }
+          if (ex.id === "memory-pattern") { exName = "Data Trend Recognition"; exDesc = "Identify and recall intricate statistical pattern structures."; }
+          if (ex.id === "memory-nback") { exName = "Dual N-Back Training"; exDesc = "Simultaneous audio-visual working memory loading for fluid intelligence."; }
+
+          if (ex.id === "logic-pattern") { exName = "Predictive Market Analysis"; exDesc = "Forecast the next sequence in an analytical data chain."; }
+          if (ex.id === "logic-puzzle") { exName = "Strategic Roadmapping"; exDesc = "Solve complex conditional resource allocation scenarios."; }
+          if (ex.id === "logic-number") { exName = "Quantitative Assessment"; exDesc = "Rapid numerical and statistical logic synthesis."; }
+          if (ex.id === "logic-spatial") { exName = "3D Mental Engineering"; exDesc = "Complex spatial rotation and mental architecture planning."; }
+
+          if (ex.id === "relax-alpha") { exName = "Cortisol Reduction Beats"; exDesc = "Acoustic neuro-modulation for rapid stress inoculation."; }
+          if (ex.id === "relax-breath") { exName = "Box Breathing Protocol"; exDesc = "Tactical breathing used for immediate autonomic nervous system reset."; }
+          if (ex.id === "relax-mindful") { exName = "Present State Calibration"; exDesc = "Anchor your executive functioning back to the present moment."; }
+          if (ex.id === "relax-body") { exName = "Somatic Tension Release"; exDesc = "Systematic scanning to identify and neutralize physical stress."; }
+          
+          if (goal === "productivity") {
+             exName = "Productivity: " + exName;
+          }
+        } 
+        else if (isTeen) {
+          if (ex.id === "focus-symbols") { exName = "Term Highlighting"; exDesc = "Quickly scan texts to find specific academic concepts."; }
+          if (ex.id === "focus-reaction") { exName = "Speed Reading Test"; exDesc = "React quickly to reading prompts and math problems."; }
+          if (ex.id === "focus-distraction") { exName = "Study Session Focus"; exDesc = "Ignore simulated phone notifications while reading."; }
+          if (ex.id === "focus-tracking") { exName = "Word Tracking"; exDesc = "Follow moving sentence structures to increase reading speed."; }
+          
+          if (ex.id === "memory-cards") { exName = "Flashcard Match"; exDesc = "Match academic terms with their corresponding definitions."; }
+          if (ex.id === "memory-sequence") { exName = "Historical Timeline"; exDesc = "Memorize the exact sequence of historical or scientific events."; }
+          if (ex.id === "memory-pattern") { exName = "Formula Recall"; exDesc = "Practice remembering complex math and physics patterns."; }
+          if (ex.id === "memory-nback") { exName = "Audio Lecture Memory"; exDesc = "Remember spoken phrases while analyzing visuals."; }
+
+          if (ex.id === "logic-pattern") { exName = "IQ Sequence Challenge"; exDesc = "Find the missing academic sequence item."; }
+          if (ex.id === "logic-puzzle") { exName = "Coding Logic"; exDesc = "Solve boolean and algorithmic 'if-then' puzzles."; }
+          if (ex.id === "logic-number") { exName = "Advanced SAT Math"; exDesc = "Fast-paced numerical reasoning and geometry."; }
+          if (ex.id === "logic-spatial") { exName = "Geometry Rotation"; exDesc = "Mentally rotate shapes to solve visual equations."; }
+
+          if (ex.id === "relax-alpha") { exName = "Study Break Beats"; exDesc = "Lofi alpha waves to chill out before your next assignment."; }
+          if (ex.id === "relax-breath") { exName = "Test-Anxiety Breathing"; exDesc = "Calm your nerves right before a big exam."; }
+          if (ex.id === "relax-mindful") { exName = "Digital Detox"; exDesc = "Step away from screens and recenter your thoughts."; }
+          if (ex.id === "relax-body") { exName = "Posture Reset"; exDesc = "Relax your shoulders and back after long study hours."; }
+
+          if (goal === "study") {
+             exName = "Studying: " + exName;
+          }
+        } 
+        else if (isChild) {
+          if (ex.id === "focus-symbols") { exName = "Find the Hidden Toy"; exDesc = "Look closely! Can you find the hidden shape in the picture?"; }
+          if (ex.id === "focus-reaction") { exName = "Pop the Ballon!"; exDesc = "Tap the balloon as fast as you can when it appears!"; }
+          if (ex.id === "focus-distraction") { exName = "Focus Animal"; exDesc = "Don't let the silly monkeys distract you from your goal!"; }
+          if (ex.id === "focus-tracking") { exName = "Catch the Butterfly"; exDesc = "Keep your eyes on the magic butterfly as it dances!"; }
+          
+          if (ex.id === "memory-cards") { exName = "Animal Match Game"; exDesc = "Flip the cards and find the matching cute animals."; }
+          if (ex.id === "memory-sequence") { exName = "Follow the Leader"; exDesc = "Watch the colors light up and repeat the magic song."; }
+          if (ex.id === "memory-pattern") { exName = "Where did it go?"; exDesc = "Remember where the treasure is hiding after it disappears!"; }
+          if (ex.id === "memory-nback") { exName = "Animal Sounds Match"; exDesc = "Did you just hear a cow? Match the sounds to the animals!"; }
+
+          if (ex.id === "logic-pattern") { exName = "What comes next?"; exDesc = "Red, Blue, Red... what color is next?"; }
+          if (ex.id === "logic-puzzle") { exName = "Sorting Game"; exDesc = "Put all the squares in the right magical box."; }
+          if (ex.id === "logic-number") { exName = "Counting Fun"; exDesc = "Count the apples and pick the right number!"; }
+          if (ex.id === "logic-spatial") { exName = "Shape Matching"; exDesc = "Turn the puzzle pieces to fit them in the holes!"; }
+
+          if (ex.id === "relax-alpha") { exName = "Sleepy Time Music"; exDesc = "Listen to gentle lullabies to rest your growing brain."; }
+          if (ex.id === "relax-breath") { exName = "Blowing Bubbles"; exDesc = "Take a deep breath and imagine blowing a giant bubble!"; }
+          if (ex.id === "relax-mindful") { exName = "Cloud Watching"; exDesc = "Look at the pretty clouds and relax your body."; }
+          if (ex.id === "relax-body") { exName = "Wiggle and Freeze"; exDesc = "Wiggle your toes and then freeze like a statue to relax!"; }
+        }
+
+        // Scale difficulty labels for Performance
+        if (isPerf) {
+          if (diffLabel === "Easy") diffLabel = "Standard";
+          if (diffLabel === "Medium") diffLabel = "Intense";
+          if (diffLabel === "Hard") diffLabel = "Expert";
+        } else if (isFun) {
+          if (diffLabel === "Hard") diffLabel = "Tricky";
+          if (diffLabel === "Medium") diffLabel = "Just Right";
+        } else if (isChild) {
+          diffLabel = "Fun";
+        }
+
+        return {
+          ...ex,
+          name: exName,
+          description: exDesc,
+          duration: Math.max(1, Math.round(ex.duration * durationMultiplier)),
+          xp: Math.round(ex.xp * xpMultiplier),
+          difficulty: diffLabel,
+          adaptedFor: currentAgeGroup.name
+        };
+      });
+
+      return {
+        ...module,
+        title: newTitle,
+        description: newDescription,
+        benefits: newBenefits,
+        exercises: adaptedExercises
+      };
+    });
+  }, [userProfile.ageGroup, userProfile.trainingMode, currentAgeGroup]);
+
   // Update user profile
   const updateProfile = (updates) => {
     setUserProfile(prev => ({ ...prev, ...updates }));
@@ -376,7 +583,7 @@ export default function Training() {
         xp: (prev.xp || 0) + earnedXP,
       }));
       // Record globally for Analytics and Dashboard
-      recordExerciseCompletion(activeExercise.name, earnedXP);
+      recordExerciseCompletion(activeExercise.name, earnedXP, activeExercise.id);
       setShowComplete(true);
       setTimeout(() => setShowComplete(false), 3000);
     }
@@ -427,6 +634,7 @@ export default function Training() {
         <>
           <GameComponent
             exerciseId={activeExercise.id}
+            exercise={activeExercise}
             onComplete={(result) => {
               handleExerciseComplete(result);
               exitExercise();
@@ -524,7 +732,7 @@ export default function Training() {
 
   // Module Detail View
   if (selectedModule) {
-    const module = TRAINING_MODULES.find((m) => m.id === selectedModule);
+    const module = dynamicModules.find((m) => m.id === selectedModule);
     return (
       <div className="training-shell">
         <header className="training-hero">
@@ -782,7 +990,7 @@ export default function Training() {
       <section className="modules-section">
         <h2>Training Modules</h2>
         <div className="modules-grid">
-          {TRAINING_MODULES.map((module) => (
+          {dynamicModules.map((module) => (
             <article
               key={module.id}
               className="module-card"
@@ -814,12 +1022,12 @@ export default function Training() {
             className="quick-btn"
             onClick={() => {
               setSelectedModule("focus");
-              startExercise(TRAINING_MODULES[0].exercises[0]);
+              startExercise(dynamicModules[0].exercises[0]);
             }}
           >
             <span>🎯</span>
             <div>
-              <strong>Symbol Hunter</strong>
+              <strong>{dynamicModules[0].exercises[0].name}</strong>
               <small>Quick attention boost</small>
             </div>
           </button>
@@ -827,12 +1035,12 @@ export default function Training() {
             className="quick-btn"
             onClick={() => {
               setSelectedModule("memory");
-              startExercise(TRAINING_MODULES[1].exercises[0]);
+              startExercise(dynamicModules[1].exercises[0]);
             }}
           >
             <span>🧠</span>
             <div>
-              <strong>Card Match</strong>
+              <strong>{dynamicModules[1].exercises[0].name}</strong>
               <small>Memory training</small>
             </div>
           </button>
@@ -840,12 +1048,12 @@ export default function Training() {
             className="quick-btn"
             onClick={() => {
               setSelectedModule("relaxation");
-              startExercise(TRAINING_MODULES[3].exercises[0]);
+              startExercise(dynamicModules[3].exercises[0]);
             }}
           >
             <span>🧘</span>
             <div>
-              <strong>Guided Breathing</strong>
+              <strong>{dynamicModules[3].exercises[0].name}</strong>
               <small>Calm your mind</small>
             </div>
           </button>

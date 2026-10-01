@@ -1,0 +1,172 @@
+/* Reminder Popup Styles */
+
+.reminder-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.reminder-popup {
+    background: linear-gradient(160deg, #1a0d35, #0a0418);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.alarm-icon {
+    font-size: 2.5rem;
+    animation: ring 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+.popup-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.popup-content {
+    margin-bottom: 1.5rem;
+}
+
+.reminder-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.reminder-detail {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.reminder-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 10px 14px;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
+    color: #a78bfa;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.popup-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn.snooze {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.action-btn.snooze:hover {
+    background: rgba(251, 191, 36, 0.25);
+}
+
+.action-btn.complete {
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    color: #fff;
+    grid-column: span 2;
+}
+
+.action-btn.complete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+}
+
+.action-btn.dismiss {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    grid-column: span 2;
+}
+
+.action-btn.dismiss:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .reminder-popup {
+        padding: 1.5rem;
+    }
+
+    .popup-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .action-btn.complete,
+    .action-btn.dismiss {
+        grid-column: span 1;
+    }
+}

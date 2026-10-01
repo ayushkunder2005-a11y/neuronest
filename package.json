@@ -1,0 +1,11 @@
+{
+  "name": "neuronest-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix server start"
+  },
+  "dependencies": {
+    "firebase": "^12.7.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "checkJs": false,
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0"
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}
